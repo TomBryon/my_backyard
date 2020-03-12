@@ -28,12 +28,13 @@ html {
 
 .btn button {
   position: relative;
-  box-shadow: 0 5px 0 0 #548235;
+  box-shadow: 0 0.4em 0 0 #548235;
   margin-left: auto;
   margin-right: auto;
   display: block;
   width: 90%;
-  margin-top: 40px;
+  height: 7em;
+  margin-top: 2em;
   color: #548235;
   padding: 1em;
   border: 1px solid;
@@ -42,12 +43,12 @@ html {
   opacity: 0.9;
   border-radius: 10px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 .btn button:active {
   box-shadow: none;
-  top: 5px;
+  top: 0.4em;
   margin-bottom: 0;
 }
 
