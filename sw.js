@@ -1,6 +1,6 @@
 'use strict';
 
-const PREFIX = 'WebApp';
+const PREFIX = 'MyBackyard';
 const HASH = '0a2b8979'; // Computed at build time.
 const OFFLINE_CACHE = `${PREFIX}-${HASH}`;
 
@@ -11,7 +11,6 @@ self.addEventListener('install', function(event) {
 				'./',
 				"./index.html",
 				"./img/title.png",
-        "./img/bg.jpg",
 				"./style.css",
         "./manifest.json"
 			]);
