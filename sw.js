@@ -8,11 +8,17 @@ self.addEventListener('install', function(event) {
 	event.waitUntil(
 		caches.open(OFFLINE_CACHE).then(function(cache) {
 			return cache.addAll([
-				'./',
 				"./index.html",
-				"./img/title.png",
+				"./index.js",
+				"./weather/weather.html",
+				"./reminders/reminders.html",
+				"./wildlife/wildlife.html",
+				"./shopping/shopping.html",
+				"./flowers/flowers.html",
+				"./img/",
 				"./style.css",
-        "./manifest.json"
+        "./manifest.json",
+				"./jquery-3.4.1.js"
 			]);
 		})
 	);
