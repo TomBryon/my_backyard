@@ -8,6 +8,7 @@ self.addEventListener('install', function(event) {
 	event.waitUntil(
 		caches.open(OFFLINE_CACHE).then(function(cache) {
 			return cache.addAll([
+				'./',
 				"./index.html",
 				"./index.js",
 				"./weather/weather.html",
@@ -17,7 +18,7 @@ self.addEventListener('install', function(event) {
 				"./flowers/flowers.html",
 				"./img/",
 				"./style.css",
-        "./manifest.json",
+				"./manifest.json",
 				"./jquery-3.4.1.js"
 			]);
 		})
