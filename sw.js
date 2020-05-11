@@ -14,7 +14,11 @@ self.addEventListener('install', function(event) {
 				"./img/icon.png",
 				"./style.css",
 				"./manifest.json",
-				"./jquery-3.4.1.js"
+				"./jquery-3.4.1.js",
+				//Naif-sh added 
+				 "weather/weather.html",
+               			 "weather/weather.js",
+                                 "weather/weather.css"	
 			]);
 		})
 	);
@@ -37,7 +41,8 @@ self.addEventListener('activate', function(event) {
 		})
 	);
 });
-
+//Orginal Christian 'fetch'
+/*
 self.addEventListener('fetch', function(event) {
 	if (event.request.mode == 'navigate') {
 		console.log('Handling fetch event for', event.request.url);
@@ -62,3 +67,31 @@ self.addEventListener('fetch', function(event) {
 	}
 
 });
+*/
+//Naif-sh edited 'fetch'
+self.addEventListener('fetch', function (event) {
+    event.respondWith(
+        caches.match(event.request).then(function (response) {
+            if (event.request.url.includes('api.openweathermap.org')) {
+                return fetch(event.request)
+                    .then((response) => {
+                        return caches.open(OFFLINE_CACHE).then((cache) => {
+                            console.log(event.request.url)
+                            if (response.status === 200) {
+                                cache.put(event.request, response.clone());
+                            }
+                            return response;
+                        })
+                    })
+                    .catch(() => {
+                        if (response) {
+                            return response;
+                        }
+                    })
+            } else {
+                return response || fetch(event.request)
+            }
+        })
+    )
+});
+
