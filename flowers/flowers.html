@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>My Backyard | Flowers</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
     <meta charset="UTF-8">
     <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="../manifest.json">
@@ -25,10 +25,7 @@
 
 
   </head>
-  <div class="topnav">
-    <a href="../index.html">Back</a>
 
-  </div>
 
   <div class="fpage">
 
@@ -59,7 +56,21 @@
     </div>
   </div>
 
+  <i id="burger" class="material-icons" onclick="burger()">Menu</i>
+  <i id="quit" class="material-icons" onclick="quit()">Back</i>
+
+  <div id="links">
+    <a href="">Home</a>
+    <a href="">Reminders</a>
+    <a href="">Shopping</a>
+    <a href="">Weather</a>
+    <a href="">Wildlife</a>
+
+  </div>
+
   </body>
+
+
   <input hidden id='in' name="in" type="file">
 
 
@@ -71,6 +82,27 @@
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('../sw.js');
     });
+  }
+  </script>
+
+
+  <script>
+  function burger(){
+    var burger = document.getElementById('burger');
+    var links = document.getElementById('links');
+    var quit = document.getElementById('quit');
+    burger.style.padding = '16px 16px 150vw 150vw';
+    links.style.display = 'flex';
+    quit.style.display = 'inline';
+  }
+
+  function quit(){
+    var burger = document.getElementById('burger');
+    var links = document.getElementById('links');
+    var quit = document.getElementById('quit');
+    burger.style.padding = '16px 16px 32px 32px';
+    links.style.display = 'none';
+    quit.style.display = 'none';
   }
   </script>
 

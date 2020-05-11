@@ -9,7 +9,7 @@
 // https://images.unsplash.com/photo-1561340928-b1504b04cf03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60
 // https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/close-up-of-yellow-flowering-plant-royalty-free-image-1575667390.jpg?crop=1xw:0.84375xh;center,top&resize=980:*
 // https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/flowers-royalty-free-image-997959716-1548454745.jpg?crop=1xw:1xh;center,top&resize=980:*
-
+// https://www.ikea.com/au/en/images/products/smycka-artificial-flower__0903311_PE596728_S5.JPG
 function analyzeButtonClick() {
     // Retrieve the user-entered value of the image URL
     let sourceImageUrl = $("#inputImage").val();
@@ -51,7 +51,7 @@ function AnalyzeImage(subscriptionKey, sourceImageUrl, responseTextArea) {
        var obj = JSON.parse(da);
        daa = JSON.stringify(obj, null, 2);
 
-       var res = obj.tags[0].name+", "+obj.tags[1].name+", "+ obj.tags[2].name+", "+ obj.tags[3].name+", "+ obj.tags[4].name;
+       var res = obj.tags[0].name+"\n"+obj.tags[1].name+"\n"+ obj.tags[2].name;
        console.log(res)
 
       // var canvas = document.getElementById("responseTextArea");
@@ -84,15 +84,24 @@ function readImage() {
            var img = new Image();
            img.src = e.target.result;
            img.onload = function() {
-             var hRatio = canvas.width  / img.width    ;
-             var vRatio =  canvas.height / img.height  ;
-             var ratio  = Math.min ( hRatio, vRatio );
-             var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
-             var centerShift_y = ( canvas.height - img.height*ratio ) / 2;
-             ctx.clearRect(0,0,canvas.width, canvas.height);
-             ctx.drawImage(img, 0,0, img.width, img.height,
-               centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
-             };
+             var imgWidth = img.naturalWidth;
+             var screenWidth  = $(window).width() - 20;
+             var scaleX = 1;
+             if (imgWidth > screenWidth){scaleX = screenWidth/imgWidth;}
+             var imgHeight = img.naturalHeight;
+             var screenHeight = $(window).height() - canvas.offsetTop-10;
+             var scaleY = 1;
+             if (imgHeight > screenHeight){scaleY = screenHeight/imgHeight;}
+             var scale = scaleY;
+             if(scaleX < scaleY){scale = scaleX;}
+             if(scale < 1){
+               imgHeight = imgHeight*scale;
+               imgWidth = imgWidth*scale;
+             }
+             canvas.height = imgHeight;
+             canvas.width = imgWidth;
+             ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight, 0,0, imgWidth, imgHeight);
+           };
         };
         FR.readAsDataURL( this.files[0] );
     }
@@ -103,3 +112,141 @@ function up() {
   fileUpload.onchange = readImage;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function () {
+
+    //Step 1. Hook into the myFile input file change event
+
+
+
+   var subKey = 'd73860db3f5c4ce0b22c77368c26cd54';
+
+    function makeblob(b64Data, contentType, sliceSize) {
+        contentType = contentType || '';
+        sliceSize = sliceSize || 512;
+
+        var byteCharacters = atob(b64Data);
+        var byteArrays = [];
+
+        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+            var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+            var byteNumbers = new Array(slice.length);
+            for (var i = 0; i < slice.length; i++) {
+                byteNumbers[i] = slice.charCodeAt(i);
+            }
+
+            var byteArray = new Uint8Array(byteNumbers);
+
+            byteArrays.push(byteArray);
+        }
+
+        var blob = new Blob(byteArrays, { type: contentType });
+        return blob;
+    }
+
+    $('#in').change(function () {
+
+        //Load everything in
+        var reader = new FileReader();
+        var file = this.files[0];
+      //  var mb = $(this).serializeObject();
+        console.log(file);
+        reader.onload=  function() {
+            var resultData = this.result;
+
+
+
+
+        //     console.log(resultData);
+
+
+            resultData = resultData.split(',')[1];
+
+            processImage(resultData);
+           // processImage(mb);
+        };
+
+
+        reader.readAsDataURL(file);
+
+    });
+
+    processImage = function(binaryImage) {
+
+
+
+
+     //   var uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze";
+        var uriBase = "https://flowers.cognitiveservices.azure.com/vision/v2.0/analyze";
+
+        //    // Request parameters.
+        var params = {
+          "visualFeatures": "Tags",
+          "details": "",
+          "language": "en",
+        };
+
+        $.ajax({
+            url: "https://flowers.cognitiveservices.azure.com/vision/v2.0/analyze?" + $.param(params),
+
+           method: "POST",
+           type: "POST",
+            beforeSend: function (xhrObj) {
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subKey);
+
+
+            },
+            contentType: "application/octet-stream",
+            mime: "application/octet-stream",
+            data: makeblob(binaryImage, 'image/jpeg'),
+            cache: false,
+            processData: false
+
+
+        }) .done(function(data) {
+           // Show formatted JSON on webpage.
+           da = JSON.stringify(data, null, 2);
+           var obj = JSON.parse(da);
+           daa = JSON.stringify(obj, null, 2);
+
+           var res = obj.tags[0].name+"\n"+obj.tags[1].name+"\n"+ obj.tags[2].name;
+           console.log(res)
+
+           // var canvas = document.getElementById("responseTextArea");
+           // var ctx = canvas.getContext("2d");
+           // ctx.font = "30px sans-serif";
+           // ctx.fillStyle = "#548235";
+           // ctx.textAlign = "center";
+
+           //ctx.fillText(res, canvas.width/2, canvas.height/2);
+           $("#responseTextArea").val(res);
+
+           alert("Success");
+         })
+
+    }
+});
