@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Backyard | Weather</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="../apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="../apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" href="../favicon-196x196.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../favicon-128.png" sizes="128x128">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="weather.css" />
+    <link rel="stylesheet" href="hamburger.css" />
+    <link rel="stylesheet" href="hover.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  </head>
+  <body>
+    <div class="hamburger-menu">
+      <input id="menu__toggle" type="checkbox" />
+      <label class="menu__btn" for="menu__toggle">
+        <span></span>
+      </label>
+      <div class="topnav menu__box">
+        <a class="menu__item" href="../index.html">Home</a>
+        <a class="menu__item" class="active" href="weather.html">Weather</a>
+        <a class="menu__item" href="../wildlife/wildlife.html">Wildlife</a>
+        <a class="menu__item" href="../flowers/flowers.html">Flowers</a>
+        <a class="menu__item" href="../reminders/reminders.html">Reminders</a>
+        <a class="menu__item" href="../shopping/shopping.html">Shopping</a>
+      </div>
+    </div>
+    <div class="search">
+      <form id="search-form" class="search-form">
+        <label>
+          <input
+                  type="text"
+                  id="search-city"
+                  name="search-city"
+                  class="search-field"
+                  placeholder="Search a city"
+          /></label>
+        <!-- <input type="submit" value="&#x1F50E;" /> -->
+      </form>
+    </div>
+    <h1>TODAY</h1>
+    <div class="today">
+      <div id="current-weather-data" class="current-weather"></div>
+    </div>
+    <h2>NEXT FIVE DAYS</h2>
+    <div id="foreseen-weather" class="foreseen-weather"></div>
+  </body>
+
+  <script src="../jquery-3.4.1.js"></script>
+
+  <script src="weather.js"></script>
+
+</html>
