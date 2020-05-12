@@ -21,29 +21,52 @@
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="weather.css" />
+    <link rel="stylesheet" href="hamburger.css" />
+    <link rel="stylesheet" href="hover.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 
   </head>
-  <div class="topnav">
-    <a href="../index.html">Home</a>
-    <a class="active" href="weather.html">Weather</a>
-    <a href="../wildlife/wildlife.html">Wildlife</a>
-    <a href="../flowers/flowers.html">Flowers</a>
-    <a href="../reminders/reminders.html">Reminders</a>
-    <a href="../shopping/shopping.html">Shopping</a>
-
-  </div>
   <body>
-    Weather blah blah
+    <div class="hamburger-menu">
+      <input id="menu__toggle" type="checkbox" />
+      <label class="menu__btn" for="menu__toggle">
+        <span></span>
+      </label>
+      <div class="topnav menu__box">
+        <a class="menu__item" href="../index.html">Home</a>
+        <a class="menu__item" class="active" href="weather.html">Weather</a>
+        <a class="menu__item" href="../wildlife/wildlife.html">Wildlife</a>
+        <a class="menu__item" href="../flowers/flowers.html">Flowers</a>
+        <a class="menu__item" href="../reminders/reminders.html">Reminders</a>
+        <a class="menu__item" href="../shopping/shopping.html">Shopping</a>
+      </div>
+    </div>
+    <div class="search">
+      <form id="search-form" class="search-form">
+        <label>
+          <input
+                  type="text"
+                  id="search-city"
+                  name="search-city"
+                  class="search-field"
+                  placeholder="Search a city"
+          /></label>
+        <!-- <input type="submit" value="&#x1F50E;" /> -->
+      </form>
+    </div>
+    <h1>TODAY</h1>
+    <div class="today">
+      <div id="current-weather-data" class="current-weather"></div>
+    </div>
+    <h2>NEXT FIVE DAYS</h2>
+    <div id="foreseen-weather" class="foreseen-weather"></div>
   </body>
 
   <script src="../jquery-3.4.1.js"></script>
-  
-  <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('../sw.js');
-    });
-  }
-  </script>
+
+  <script src="weather.js"></script>
 
 </html>
