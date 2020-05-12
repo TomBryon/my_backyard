@@ -16,9 +16,9 @@ self.addEventListener('install', function(event) {
 				"./manifest.json",
 				"./jquery-3.4.1.js",
 				//Naif-sh added 
-				 "weather/weather.html",
-               			 "weather/weather.js",
-                                 "weather/weather.css"	
+				 "./weather/weather.html",
+               			 "./weather/weather.js",
+                                 "./weather/weather.css"	
 			]);
 		})
 	);
