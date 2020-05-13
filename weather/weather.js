@@ -58,7 +58,7 @@ const weatherComponent = (data) => {
 const geoCallback = (position) => {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
-    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
         .then((response) => {
             return response.json();
         }).then((data) => {
@@ -89,7 +89,7 @@ const geoCallback = (position) => {
 }
 
 const showWeatherByCity = (city) => {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
         .then((response) => {
             return response.json();
         })
@@ -110,7 +110,7 @@ const showWeatherByCity = (city) => {
 }
 
 const showForeseenWeatherByCity = (city) => {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`)
         .then((response) => {
             return response.json();
         })
