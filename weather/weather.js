@@ -132,7 +132,6 @@ const showForeseenWeatherByCity = (city) => {
         })
 }
 
-
 const foreseenWeatherComponent = (data, city) => {
     let date = convertStringToDate(data.dt);
     return `<div class='foreseen'>
