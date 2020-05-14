@@ -17,7 +17,7 @@ self.addEventListener('install', function(event) {
 				"./jquery-3.4.1.js"
 				
 				//those resources are cached for Reminder
-				"/jquery-3.4.1.js",
+			
 				"/reminders/reminders.html",
 				"/reminders/reminders.js",
 				"/css/themes/Try1.css",
