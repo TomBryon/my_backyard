@@ -1,49 +1,208 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My Backyard | Shopping</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="manifest" href="../manifest.json">
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="../apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="../apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../apple-touch-icon-152x152.png">
-    <link rel="icon" type="image/png" href="../favicon-196x196.png" sizes="196x196">
-    <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="../favicon-128.png" sizes="128x128">
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<html lang="en">
 
-  </head>
-  <div class="topnav">
-    <a href="../index.html">Home</a>
-    <a href="../weather/weather.html">Weather</a>
-    <a href="../wildlife/wildlife.html">Wildlife</a>
-    <a href="../flowers/flowers.html">Flowers</a>
-    <a href="../reminders/reminders.html">Reminders</a>
-    <a class="active" href="shopping.html">Shopping</a>
+    <head>
+        <meta charset="utf-8">
 
-  </div>
-  <body>
-    Shopping blah blah
-  </body>
+        <!-- base -->
+        <link rel="manifest" href="../manifest.json">
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../img/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon-precomposed" sizes="60x60" href="../img/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../img/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="../img/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../img/apple-touch-icon-152x152.png">
+        <link rel="icon" type="image/png" href="../img/favicon-196x196.png" sizes="196x196">
+        <link rel="icon" type="image/png" href="../img/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="../img/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="../img/favicon-128.png" sizes="128x128">
+        <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
-  <script src="../jquery-3.4.1.js"></script>
 
-  <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('../sw.js');
-    });
-  }
-  </script>
+        <title>My Backyard | Shopping</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/themes/Try1.css"/>
+        <link rel="stylesheet" href="../css/themes/jquery.mobile.icons.min.css"/>
+        <link rel="stylesheet" href="../jquery.mobile.structure-1.4.5.min.css"/>
+        <script src="../jquery-1.11.1.min.js"></script>
+        <script src="../jquery.mobile-1.4.5.min.js"></script>
+
+        <link rel="stylesheet" href="../style.css">
+
+    </head>
+
+
+    <body>
+        <div data-role="page" id="Main">
+            <header data-role="header" data-theme="a">
+                <h1>Shopping List</h1>
+                <a onclick="window.location.href='../index.html';" class="ui-btn  ui-icon-home ui-btn-icon-notext">
+                    Home</a>
+            </header>
+
+            <article data-role="content">
+                <div class="inner-body">
+                    <div id="add-buttons" class="add-btn">
+                        <a href="#add-divider-screen" class="ui-btn divider" id="add-divider">
+                            <span>&#9997;DIVIDER</span>
+                            <i class="fas fa-plus-circle"></i>
+                        </a>
+                        <a href="#add-item-screen" class="item ui-btn" id="add-item">
+                            <span class="arm">&#9997;ITEM</span>
+                            <i class="fas fa-plus-circle"></i>
+                        </a>
+                    </div>
+                    <div class="shopping-background">
+                        <ul data-role="listview" data-inset="true" data-input="#rich-autocomplete-input" id="shopping-list" class="shopping-list">
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <footer data-role="footer" data-position="fixed" data-theme="a">
+                <nav data-role="navbar" class="footer-navbar">
+
+                    <a href="#" id="delete-all-button"
+                       class="ui-btn ui-btn-inline ui-btn-icon-right ui-shadow ui-corner-all ui-icon-delete ui-btn-b"
+                       data-theme="b">Delete All</a>
+
+                </nav>
+
+
+
+            </footer>
+
+        </div>
+
+        <!--  Add screens   -->
+
+        <div data-role="page" id="add-divider-screen">
+            <header data-role="header" data-theme="">
+                <h1>Add Divider</h1>
+                <a href="#Main"
+                   class="ui-btn ui-btn-inline ui-btn-icon-center  ui-shadow ui-corner-all  ui-icon-back ui-btn-icon-notext ui-btn-b"
+                   data-theme="b">Back</a>
+                <a href="#Main" id="button-add-divider"
+                   class="ui-btn ui-btn-inline ui-btn-icon-right ui-btn-right  ui-shadow ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-b"
+                   data-theme="b">Add</a>
+            </header>
+
+            <article data-role="content">
+                <form action="#" id="add-divider-form" class="divider-form">
+                    <div>
+                        <input
+                                type="text"
+                                id="add-divider-name"
+                                class="input-field"
+                                name="add-divider-name"
+                                placeholder="Divider name"
+                        />
+                    </div>
+                </form>
+            </article>
+        </div>
+
+        <div data-role="page" id="add-item-screen">
+            <header data-role="header" data-theme="">
+                <h1>Add Item</h1>
+                <a href="#Main"
+                   class="ui-btn ui-btn-inline ui-btn-icon-center  ui-shadow ui-corner-all  ui-icon-back ui-btn-icon-notext ui-btn-b"
+                   data-theme="b">Back</a>
+                <a href="#Main" id="button-add-item"
+                   class="ui-btn ui-btn-inline ui-btn-icon-right ui-btn-right  ui-shadow ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-b"
+                   data-theme="b">Add</a>
+            </header>
+
+            <article data-role="content">
+                <form action="#" id="add-item-form" class="item-form">
+                    <div>
+                        <div>
+                            <label for="add-item-category">Divider:</label>
+                            <select
+                                    id="add-item-category"
+                                    name="add-item-category"
+                                    class="select-divider"
+                            >
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="add-item-name">Name:</label>
+                        <input
+                                type="text"
+                                id="add-item-name"
+                                class="input-field"
+                                name="add-item-name"
+                                placeholder="Item name"
+                        />
+                    </div>
+                </form>
+            </article>
+        </div>
+
+        <!--  End add screens     -->
+
+        <!--  Edit screens     -->
+
+        <div data-role="page" id="edit-divider-screen">
+            <header data-role="header" data-theme="">
+                <h1>Edit Divider</h1>
+                <a href="#Main"
+                   class="ui-btn ui-btn-inline ui-btn-icon-center  ui-shadow ui-corner-all  ui-icon-back ui-btn-icon-notext ui-btn-b"
+                   data-theme="b">Back</a>
+                <a href="#Main" id="button-edit-divider"
+                   class="ui-btn ui-btn-inline ui-btn-icon-right ui-btn-right  ui-shadow ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-b"
+                   data-theme="b">Add</a>
+            </header>
+
+            <article data-role="content">
+                <form action="#" id="edit-divider-form" class="edit-form">
+                    <input type="hidden" name="edit-divider-id" id="edit-divider-id" />
+                    <input
+                            type="text"
+                            id="edit-divider-name"
+                            class="input-field"
+                            name="edit-divider-name"
+                            placeholder="Divider name"
+                    />
+                </form>
+            </article>
+        </div>
+
+        <div data-role="page" id="edit-item-screen">
+            <header data-role="header" data-theme="">
+                <h1>Edit Item</h1>
+                <a href="#Main"
+                   class="ui-btn ui-btn-inline ui-btn-icon-center  ui-shadow ui-corner-all  ui-icon-back ui-btn-icon-notext ui-btn-b"
+                   data-theme="b">Back</a>
+                <a href="#Main" id="button-edit-item"
+                   class="ui-btn ui-btn-inline ui-btn-icon-right ui-btn-right  ui-shadow ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-b"
+                   data-theme="b">Add</a>
+            </header>
+
+            <article data-role="content">
+                <form action="#" id="edit-item-form" class="edit-form">
+                    <input type="hidden" name="edit-item-id" id="edit-item-id" />
+                    <div>
+                        <input
+                                type="text"
+                                id="edit-item-name"
+                                class="input-field"
+                                name="edit-item-name"
+                                placeholder="Item name"
+                        />
+                    </div>
+                </form>
+            </article>
+        </div>
+
+    </body>
+    <script src="../index.js"></script>
+    <script src="./shopping.js"></script>
 
 </html>

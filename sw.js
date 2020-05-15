@@ -19,6 +19,15 @@ self.addEventListener('install', function(event) {
 				 "weather/weather.html",
                			 "weather/weather.js",
                                  "weather/weather.css"	
+				//Ahmed added
+				    "/img/favicon.ico",
+              			  "/shopping/shopping.html",
+               			 "/shopping/shopping.js",
+        		        "/jquery.mobile-1.4.5.min.js",
+               			 "/jquery-1.11.1.min.js",
+             			   "/jquery.mobile.structure-1.4.5.min.css",
+              			  "/css/themes/Try1.css",
+            			    "/css/themes/jquery.mobile.icons.min.css"
 			]);
 		})
 	);
@@ -91,6 +100,25 @@ self.addEventListener('fetch', function (event) {
             } else {
                 return response || fetch(event.request)
             }
+        })
+    )
+});
+
+//Ahmed 'fetch'
+
+//activate service worker on the page where it is registered
+self.addEventListener('activate', function (event) {
+    console.info('Event: Activate');
+    event.waitUntil(
+        self.clients.claim()
+    );
+});
+
+//this is an interceptor for all fetch requests to your server, if somth available from cache it will be accessed from cache
+self.addEventListener('fetch', function (event) {
+    event.respondWith(
+        caches.match(event.request).then(function (response) {
+            return response || fetch(event.request)
         })
     )
 });
