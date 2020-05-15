@@ -15,19 +15,25 @@ self.addEventListener('install', function(event) {
 				"./style.css",
 				"./manifest.json",
 				"./jquery-3.4.1.js",
-				//Naif-sh added 
-				 "weather/weather.html",
-               			 "weather/weather.js",
-                                 "weather/weather.css"	
+				//Naif-sh added
+				"weather/weather.html",
+        "weather/weather.js",
+        "weather/weather.css"
 				//Ahmed added
-				    "/img/favicon.ico",
-              			  "/shopping/shopping.html",
-               			 "/shopping/shopping.js",
-        		        "/jquery.mobile-1.4.5.min.js",
-               			 "/jquery-1.11.1.min.js",
-             			   "/jquery.mobile.structure-1.4.5.min.css",
-              			  "/css/themes/Try1.css",
-            			    "/css/themes/jquery.mobile.icons.min.css"
+				"./img/favicon.ico",
+        "./shopping/shopping.html",
+        "./shopping/shopping.js",
+        "./jquery.mobile-1.4.5.min.js",
+        "./jquery-1.11.1.min.js",
+        "./jquery.mobile.structure-1.4.5.min.css",,
+        "./css/themes/jquery.mobile.icons.min.css"
+				"./reminders/reminders.html",
+				"./reminders/reminders.js",
+				"./css/themes/Try1.css",
+				"./css/themes/jquery.mobile.icons.min.css",
+				"./jquery.mobile-1.4.5.min.map",
+				"./css/themes/images/ajax-loader.gif"
+
 			]);
 		})
 	);
@@ -122,4 +128,3 @@ self.addEventListener('fetch', function (event) {
         })
     )
 });
-

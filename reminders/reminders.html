@@ -1,31 +1,143 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>My Backyard | Reminders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reminder</title>
+
+
+
     <link rel="stylesheet" href="../style.css">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="../img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="../img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../img/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" href="../img/favicon-196x196.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="../img/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../img/favicon-128.png" sizes="128x128">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="../css/themes/Try1.css" />
+    <link rel="stylesheet" href="../css/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../jquery.mobile.structure-1.4.5.min.css" />
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script src="../jquery.mobile-1.4.5.min.js"></script>
   </head>
-  <div class="topnav">
-    <a href="../index.html">Home</a>
-    <a href="../weather/weather.html">Weather</a>
-    <a href="../wildlife/wildlife.html">Wildlife</a>
-    <a href="../flowers/flowers.html">Flowers</a>
-    <a  class="active" href="reminders.html">Reminders</a>
-    <a href="../shopping/shopping.html">Shopping</a>
-
-  </div>
   <body>
-    Reminders blah blah
+    <div data-role="page" id="Main">
+      <header data-role="header" data-theme="a">
+        <h1>Reminder</h1>
+        <a onclick="window.location.href='../index.html';" class="ui-btn  ui-icon-home ui-btn-icon-notext">
+          Home</a>
+        <a href="#Add"
+           class="ui-btn ui-btn-inline ui-btn-icon-right  ui-shadow ui-corner-all  ui-icon-plus ui-btn-icon-notext ui-btn-c"
+           data-theme="c">Add</a>
+      </header>
+
+
+      <article data-role="content">
+        <ul data-role="listview" data-inset="true" data-input="#rich-autocomplete-input" id="reminder-list">
+        </ul>
+      </article>
+
+    </div>
+
+    <div data-role="page" id="Add">
+      <header data-role="header" data-theme="">
+        <h1>Add</h1>
+        <a href="#Main"
+           class="ui-btn ui-btn-inline ui-btn-icon-center  ui-shadow ui-corner-all  ui-icon-back ui-btn-icon-notext ui-btn-b"
+           data-theme="b">Back</a>
+        <a href="#Main" id="button-add"
+           class="ui-btn ui-btn-inline ui-btn-icon-right ui-btn-right  ui-shadow ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-b"
+           data-theme="b">Add</a>
+      </header>
+
+      <article data-role="content">
+
+        <form id="add-form">
+
+          <select id="add-day" name="add-day">
+            <option value="Mon">Monday</option>
+            <option value="Tue">Tuesday</option>
+            <option value="Wed">Wednesday</option>
+            <option value="Thu">Thursday</option>
+            <option value="Fri">Friday</option>
+            <option value="Sat">Saturday</option>
+            <option value="Sun">Sunday</option>
+          </select>
+
+
+          <input type="radio" name="activity" id="watering" value="Watering" checked>
+          <label for="watering">Watering </label>
+
+          <input type="radio" name="activity" id="weeding" value="Weeding">
+          <label for="weeding">Weeding</label>
+
+          <div style="display: flex; justify-content: left">
+            <input type="text" value="00" id="hours" name="hours" min="0" maxlength="23"/>
+            <span style="color: black; display: flex; align-items: center">:</span>
+            <input type="text" value="00" id="minutes" name="minutes" min="0" max="60"/>
+          </div>
+        </form>
+      </article>
+    </div>
+
+
+    <div data-role="page" id="Edit">
+      <header data-role="header" data-theme="a">
+        <h1>Edit</h1>
+        <a href="#Main"
+           class="ui-btn ui-btn-inline ui-btn-icon-center  ui-shadow ui-corner-all  ui-icon-back ui-btn-icon-notext ui-btn-b"
+           data-theme="b">Back</a>
+        <a href="#Main" id="button-edit"
+           class="ui-btn ui-btn-inline ui-btn-icon-right ui-btn-right  ui-shadow ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-b"
+           data-theme="b">Edit</a>
+
+      </header>
+
+
+      <article data-role="content">
+        <form id="edit-form">
+
+          <input type="hidden" id="edit-id" name="id">
+
+          <select id="edit-day" name="day">
+            <option value="Mon">Monday</option>
+            <option value="Tue">Tuesday</option>
+            <option value="Wed">Wednesday</option>
+            <option value="Thu">Thursday</option>
+            <option value="Fri">Friday</option>
+            <option value="Sat">Saturday</option>
+            <option value="Sun">Sunday</option>
+          </select>
+
+
+          <input type="radio" name="edit-activity" id="edit-watering" value="Watering">
+          <label for="edit-watering">Watering</label>
+          <input type="radio" name="edit-activity" id="edit-weeding" value="Weeding">
+          <label for="edit-weeding">Weeding</label>
+
+          <div style="display: flex; justify-content: left">
+            <input type="text" value="00" id="edit-hours" name="edit-hours" min="0" maxlength="23"/>
+            <span style="color: black; display: flex; align-items: center">:</span>
+            <input type="text" value="00" id="edit-minutes" name="edit-minutes" min="0" max="60"/>
+          </div>
+
+        </form>
+      </article>
+    </div>
+
   </body>
-
-  <script src="../jquery-3.4.1.js"></script>
-
-  <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('../sw.js');
-    });
-  }
+  <script src="../index.js"></script>
+  <script src="./reminders.js">
   </script>
-
 </html>
