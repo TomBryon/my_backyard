@@ -1,0 +1,53 @@
+html {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: white;
+}
+
+.title {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  margin-bottom: -2.5em;
+}
+
+/* buttons ----------------------------------------------*/
+.btn .ico {
+  position: sticky;
+  width: 2em;
+  float: left;
+}
+.btn .arrow {
+  position: sticky;
+  width: 2em;
+  float: right;
+}
+
+.btn button {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 95%;
+  height: 4em;
+  margin-top: 1em;
+  color: #548235;
+  padding: 1em;
+  border: 2px solid;
+  border-color: #548235;
+  cursor: pointer;
+  opacity: 0.9;
+  border-radius: 0.5em;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3em;
+  font-weight: bold;
+  text-align:center;
+  background-color: white;
+}
+
+.btn button:hover {opacity: 1;}
+.btn button:active, .clicky:focus {outline: 0;}
+/*------------------------------------------------------*/
