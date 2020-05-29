@@ -1,0 +1,95 @@
+@charset "UTF=8";
+
+body {
+  font: 16px "Open Sans", "Arial", sans-serif;
+}
+.topnav {
+  padding: 5px;
+  
+}
+video {
+  margin-top: 10px;
+  border: 1px solid black;
+}
+.videoElement {
+  float: inherit;
+  margin-top: 40px;
+}
+.topLeftButton {
+  float: left;
+  display: block;
+  width: 160px;
+  border: 1px solid black;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  color: black;
+  background-color: white;
+  text-decoration: none;
+}
+.topRightButton {
+  float: left;
+  cursor: pointer;
+  display: block;
+  width: 160px;
+  border: 1px solid black;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  color: white;
+  background-color: darkgreen;
+  text-decoration: none;
+}
+.startButton {
+  cursor: pointer;
+  display: block;
+  width: 160px;
+  border: 1px solid black;
+  float: left;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  color: white;
+  background-color: darkgreen;
+  text-decoration: none;
+}
+.stopButton {
+  cursor: pointer;
+  display: block;
+  float: left;
+  width: 160px;
+  border: 1px solid black;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  margin-left: 10px;
+  color: white;
+  background-color: red;
+  text-decoration: none;
+}
+.downloadButton {
+  cursor: pointer;
+  display: block;
+  width: 160px;
+  border: 1px solid black;
+  float: left;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  color: white;
+  background-color: darkgreen;
+  text-decoration: none;
+}
+h2 {
+  margin-bottom: 4px;
+}
+.bottom {
+  clear: both;
+  padding-top: 10px;
+  padding-bottom: 200px;
+} 
