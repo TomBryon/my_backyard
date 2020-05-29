@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="gallery.css" />
+    <title>Record Video</title>
+  </head>
+  <body>
+    <div id="recordButton" class="topLeftButton">
+      <a href="record.html">Record</a>
+    </div>
+    <div id="galleryButton" class="topRightButton">
+      Gallery
+    </div>
+    <br>
+    <h2>Gallery - Playback</h2>
+    <br>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="files[]" multiple />
+      <input type="submit" value="Upload File" name="submit" />
+    </form>
+    <br>
+    <video id="gallery" width="480" height="360" controls></video>
+    <br>
+    <script>
+      function hasGetUserMedia() {
+        return !!(navigator.mediaDevices &&
+        navigator.mediaDevices.getUserMedia);
+      }
+      if (hasGetUserMedia()) {
+        // Good to go!
+      } else {
+        alert('getUserMedia() is not supported by your browser');
+      }
+    </script>
+    <script src="video.js"></script>
+  </body>
+</html>
