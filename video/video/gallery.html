@@ -13,14 +13,17 @@
       Gallery
     </div>
     <br>
-    <h2>Gallery - Playback</h2>
+    <h2>Video Gallery</h2>
     <br>
+    <p>
+      Tap "Choose File" to upload a .webm file, and then hit upload to see in gallery. 
+    </p>
     <form method="post" enctype="multipart/form-data">
       <input type="file" name="files[]" multiple />
       <input type="submit" value="Upload File" name="submit" />
     </form>
     <br>
-    <video id="gallery" width="480" height="360" controls></video>
+    <video id="gallery" controls></video>
     <br>
     <script>
       function hasGetUserMedia() {

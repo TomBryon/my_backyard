@@ -3,7 +3,12 @@
 body {
   font: 16px "Open Sans", "Arial", sans-serif;
 }
+a {
+  color: white;
+}
 video {
+  width: 300px;
+  height: 280px;
   margin-top: 2px;
   border: 1px solid black;
 }
@@ -11,32 +16,38 @@ video {
   float: left;
   margin-top: 30px;
 }
-.topRightButton {
-  float: left;
-  display: block;
-  width: 160px;
-  border: 1px solid black;
-  font-size: 16px;
-  text-align: center;
-  padding-top: 2px;
-  padding-bottom: 4px;
-  color: black;
-  background-color: white;
-  text-decoration: none;
-}
 .topLeftButton {
   float: left;
-  cursor: pointer;
+  margin-left: 5%;
   display: block;
-  width: 160px;
+  height: 50px;
+  width: 130px;
   border: 1px solid black;
-  font-size: 16px;
+  font-size: 30px;
   text-align: center;
-  padding-top: 2px;
+  padding-top: 20px;
   padding-bottom: 4px;
   color: white;
   background-color: darkgreen;
   text-decoration: none;
+  margin-bottom: 10px;
+}
+.topRightButton {
+  float: left;
+  left: -5%;
+  cursor: pointer;
+  display: block;
+  height: 50px;
+  width: 130px;
+  border: 1px solid black;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 4px;
+  color: black;
+  background-color: white;
+  text-decoration: none;
+  margin-bottom: 10px;
 }
 .uploadButton {
   cursor: pointer;
@@ -53,19 +64,8 @@ video {
   text-decoration: none;
 }
 h2 {
+  text-align: center;
   margin-bottom: 4px;
-}
-.left {
-  margin-right: 10px;
-  float: left;
-  width: 480px;
-  padding: 0px;
-}
-.right {
-  margin-left: 10px;
-  float: left;
-  width: 480px;
-  padding: 0px;
 }
 .bottom {
   clear: both;

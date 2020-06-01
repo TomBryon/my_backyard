@@ -62,7 +62,7 @@ startButton.addEventListener("click", function() {
     downloadButton.href = recording.src;
     downloadButton.download = "RecordedVideo.webm";
     
-    log("Successfully recorded " + recordedBlob.size + " bytes of " +
+    log("Successfully recorded \n" + recordedBlob.size + " bytes of \n" +
         recordedBlob.type + " media.");
   })
   .catch(log);
@@ -70,6 +70,10 @@ startButton.addEventListener("click", function() {
 
 stopButton.addEventListener("click", function() {
   stop(preview.srcObject);
+}, false);
+
+downloadButton.addEventListener("click", function() {
+  log("Successfully downloaded. \n");
 }, false);
 
 form.addEventListener('submit', e => {
@@ -82,7 +86,7 @@ form.addEventListener('submit', e => {
     let data = files[i];
     formData.append('files[]', data);
   }
-  
+
   gallery.src = data;
 
 })
